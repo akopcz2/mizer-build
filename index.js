@@ -140,7 +140,7 @@
 		};
 
 		var buildAssets = (callback) => {
-			shell.exec('npm run build-assets', callback);
+			shell.exec('npm run build-assets-s3', callback);
 		};
 
 		/**

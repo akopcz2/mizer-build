@@ -1,6 +1,6 @@
 {
-  "name": "mizer-build",
-  "version": "3.1.0",
+  "name": "mizer-build-s3",
+  "version": "1.0.0",
   "description": "Build static files for mizer boilerplate",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b40houghton/mizer-build.git"
+    "url": "git+https://github.com/akopcz2/mizer-build.git"
   },
   "bin": {
-    "compile": "./index.js"
+    "compile-s3": "./index.js"
   },
   "keywords": [
     "mizer",
@@ -19,12 +19,12 @@
     "build",
     "static"
   ],
-  "author": "Brandon Houghton",
+  "author": "Adrian Kopczewski",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/b40houghton/mizer-build/issues"
+    "url": "https://github.com/akopcz2/mizer-build/issues"
   },
-  "homepage": "https://github.com/b40houghton/mizer-build#readme",
+  "homepage": "https://github.com/akopcz2/mizer-build#readme",
   "dependencies": {
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
