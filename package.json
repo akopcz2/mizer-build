@@ -1,6 +1,6 @@
 {
   "name": "mizer-build-s3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build static files for mizer boilerplate",
   "main": "index.js",
   "scripts": {
