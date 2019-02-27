@@ -78,8 +78,13 @@
 				return new Promise((resolve, reject) => {
 					const urlArray = file.replace(/\.[^/.]+$/, '').split('/').filter(n => n !== '' && n !== '.' && n !== 'site-sections' && n !== 'views' && n !== 'root' && n !== 'index');
 					const pathArray = Array.from(urlArray);
-					const siteDirectory = (pathArray.length) ? pathArray.shift() : 'root';
-					const view = (pathArray.length) ? pathArray.join('/') : 'index';
+					var siteDirectory = (pathArray.length) ? pathArray.shift() : '';
+					var view = (pathArray.length) ? pathArray.join('/') : 'index';
+
+					if(view !== 'index'){
+						siteDirectory = siteDirectory + `/${view}/`
+						view = 'index';
+					}
 					const urlPath = `/${urlArray.join('/')}`;
 
 					const options = {
@@ -91,7 +96,7 @@
 					// HTTP GET each page, build page/directory from response
 					request(options, (error, response, body) => {
 						// build directory structure or find existing
-						mkdirp('./build/' + siteDirectory, (err) => {
+						mkdirp(`./build/` + siteDirectory, (err) => {
 							if (err) reject(err);
 
 							// build page within site directory, using view data.
