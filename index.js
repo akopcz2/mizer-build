@@ -152,23 +152,23 @@
 		 * run the gulp build command with production env to build and move js/css/images to the build directory
 		 */
 		removeBuild(function () {
-			buildAssets();
-
-			/**
-			 * get all hbs files in the views directory and pass to compileFiles(), run finalizeBuild on completion.
-			 * @param  {String} glob string
-			 * @param  {Object} glob settings
-			 * @param  {Function} glob callback
-			 */
-
-			globby('./site-sections/**/views/*.hbs', {
-				ignore: ignoreArr
-			}).then(data => {
-				// compile files based on views directory, close server when complete.
-				compileFiles(data, function () {
-					setTimeout(() => {
-						finalizeBuild();
-					}, 10000)
+			buildAssets(function() {
+				/**
+				 * get all hbs files in the views directory and pass to compileFiles(), run finalizeBuild on completion.
+				 * @param  {String} glob string
+				 * @param  {Object} glob settings
+				 * @param  {Function} glob callback
+				 */
+	
+				globby('./site-sections/**/views/*.hbs', {
+					ignore: ignoreArr
+				}).then(data => {
+					// compile files based on views directory, close server when complete.
+					compileFiles(data, function () {
+						setTimeout(() => {
+							finalizeBuild();
+						}, 10000)
+					});
 				});
 			});
 		});
