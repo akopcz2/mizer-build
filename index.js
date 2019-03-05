@@ -166,7 +166,9 @@
 			}).then(data => {
 				// compile files based on views directory, close server when complete.
 				compileFiles(data, function () {
-					finalizeBuild();
+					setTimeout(() => {
+						finalizeBuild();
+					}, 10000)
 				});
 			});
 		});
